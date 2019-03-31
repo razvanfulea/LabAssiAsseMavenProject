@@ -166,6 +166,17 @@ public class ServiceTest {
     }
 
     @Test
+    public void test_addStudent(){
+        StudentValidator validator = new StudentValidator();
+        Student student = new Student("1", "1", 1, "1", "1");
+        try {
+            validator.validate(student);
+        } catch (ValidatorException e) {
+            fail(e.getMessage());
+        }
+    }
+
+    @Test
     public void test_addLabAssignment(){
         TemaLabValidator validator = new TemaLabValidator();
         TemaLab temaLab = new TemaLab(1, "1", 5, 5);

@@ -6,7 +6,7 @@ public class StudentValidator implements IValidator<Student> {
 
     public void validate(Student s) throws ValidatorException {
         String errors="";
-        if(s.getId().equals("")){
+        if(s.getId() == null || s.getId().equals("")){
             //throw new ValidatorException("Id invalid\n");
             errors+="Id invalid\n";
         }

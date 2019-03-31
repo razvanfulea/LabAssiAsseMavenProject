@@ -22,6 +22,9 @@ public class StudentValidator implements IValidator<Student> {
             //throw new ValidatorException("Email invalid\n");
             errors+="Email invalid\n";
         }
+        if(s.getIndrumator() == null || s.getIndrumator().equals("")){
+            errors+="Indrumator invalid\n";
+        }
         if (errors.length()!=0){
             throw  new ValidatorException(errors);
         }

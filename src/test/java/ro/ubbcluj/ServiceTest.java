@@ -1,6 +1,5 @@
 package ro.ubbcluj;
 
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -50,16 +49,6 @@ public class ServiceTest {
         studentRepo.save(student);
     }
 
-    @Test
-    public void test_addStudentIdOk(){
-        try {
-            studentRepo.save(student);
-            assert true;
-        } catch (ValidatorException e) {
-            fail(e.getMessage());
-        }
-    }
-
     @Test(expected = ValidatorException.class)
     public void test_addStudentNumeEmpty() throws ValidatorException {
         student.setNume(EMPTY);
@@ -70,16 +59,6 @@ public class ServiceTest {
     public void test_addStudentNumeNull() throws ValidatorException {
         student.setNume(NULL);
         studentRepo.save(student);
-    }
-
-    @Test
-    public void test_addStudentNumeOk(){
-        try {
-            studentRepo.save(student);
-            assert true;
-        } catch (ValidatorException e) {
-            fail(e.getMessage());
-        }
     }
 
     @Test
@@ -135,34 +114,38 @@ public class ServiceTest {
         }
     }
 
-    @Test
-    public void test_addStudentEmailEmpty(){
+    @Test(expected = ValidatorException.class)
+    public void test_addStudentEmailEmpty() throws ValidatorException {
+        student.setEmail(EMPTY);
+        studentRepo.save(student);
+    }
 
+    @Test(expected = ValidatorException.class)
+    public void test_addStudentEmailNull() throws ValidatorException {
+        student.setEmail(NULL);
+        studentRepo.save(student);
+    }
+
+    @Test(expected = ValidatorException.class)
+    public void test_addStudentIndrumatorEmpty() throws ValidatorException {
+        student.setIndrumator(EMPTY);
+        studentRepo.save(student);
+    }
+
+    @Test(expected = ValidatorException.class)
+    public void test_addStudentIndrumatorNull() throws ValidatorException {
+        student.setIndrumator(NULL);
+        studentRepo.save(student);
     }
 
     @Test
-    public void test_addStudentEmailNull(){
-
-    }
-
-    @Test
-    public void test_addStudentEmailOk(){
-
-    }
-
-    @Test
-    public void test_addStudentIndrumatorEmpty(){
-
-    }
-
-    @Test
-    public void test_addStudentIndrumatorNull(){
-
-    }
-
-    @Test
-    public void test_addStudentIndrumatorOk(){
-
+    public void test_addStudentOk(){
+        try {
+            studentRepo.save(student);
+            assert true;
+        } catch (ValidatorException e) {
+            fail(e.getMessage());
+        }
     }
 
     @Test

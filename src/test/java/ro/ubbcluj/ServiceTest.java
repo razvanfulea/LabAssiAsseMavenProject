@@ -18,15 +18,15 @@ public class ServiceTest {
     private static final String OK = "OK";
     private static final int GRUPA = 1;
 
-    String filename = "TestStudentiXML.xml";
-    StudentValidator studentValidator;
-    StudentXMLRepo studentRepo;
-    Student student;
+    private String studentFilename = "TestStudentiXML.xml";
+    private StudentValidator studentValidator;
+    private StudentXMLRepo studentRepo;
+    private Student student;
 
     @Before
     public void setUp(){
         studentValidator = new StudentValidator();
-        studentRepo = new StudentXMLRepo(studentValidator, filename);
+        studentRepo = new StudentXMLRepo(studentValidator, studentFilename);
         student = new Student(OK, OK, GRUPA, OK, OK);
     }
 
@@ -168,6 +168,11 @@ public class ServiceTest {
         } catch (ValidatorException e) {
             fail(e.getMessage());
         }
+    }
+
+    @Test
+    public void test_addLabAssignmentCoverage(){
+
     }
 
 }
